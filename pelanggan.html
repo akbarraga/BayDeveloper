@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Testimonial</title>
+    <link rel="stylesheet" href="/css/testi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Testimonial Form Section -->
+    <div class="wrapper">
+        <h3>Berikan Testimonial Anda</h3>
+        <form id="testimonialForm" autocomplete="off">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
+            </div>
+            <div class="mb-3">
+                <label for="product" class="form-label">Asal Pendidikan</label>
+                <input type="text" class="form-control" id="product" placeholder="Masukan Asal Universitas / Sekolah" required>
+            </div>
+            <br>
+            <div class="rating">
+                <input type="number" id="rating" name="rating" hidden>
+                <i class='bx bx-star star' style="--i: 0;"></i>
+                <i class='bx bx-star star' style="--i: 1;"></i>
+                <i class='bx bx-star star' style="--i: 2;"></i>
+                <i class='bx bx-star star' style="--i: 3;"></i>
+                <i class='bx bx-star star' style="--i: 4;"></i>
+            </div>
+            <textarea id="opinion" name="opinion" cols="30" rows="5" placeholder="Buat testimonial untuk kami..." required></textarea>
+            <div class="btn-group">
+                <button type="submit" class="btn submit">Kirim</button>
+                <button type="button" class="btn cancel" onclick="window.location.href='index.html'">Batal</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const stars = document.querySelectorAll('.bx-star');
+            const ratingInput = document.getElementById('rating');
+            const form = document.getElementById('testimonialForm');
+            let selectedRating = 0;
+
+            stars.forEach((star, index) => {
+                star.addEventListener('click', function () {
+                    selectedRating = index + 1;
+                    ratingInput.value = selectedRating;
+
+                    stars.forEach((s, i) => {
+                        if (i < selectedRating) {
+                            s.classList.add('checked');
+                        } else {
+                            s.classList.remove('checked');
+                        }
+                    });
+                });
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const product = document.getElementById('product').value;
+                const opinion = document.getElementById('opinion').value;
+
+                if (selectedRating > 0) {
+                    addTestimonial(name, product, selectedRating, opinion);
+
+                    // Display confirmation message
+                    alert('Terimakasih kakak, Testimonial berhasil dikirim!');
+
+                    // Redirect to index.html after a short delay to allow user to see the alert
+                    setTimeout(function () {
+                        window.location.href = 'index.html';
+                    }, 1000); // 1 second delay
+                } else {
+                    alert('Silakan pilih rating bintang!');
+                }
+            });
+        });
+
+        function addTestimonial(name, product, rating, opinion) {
+            const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+            testimonials.push({ name, product, rating, opinion });
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+        }
+
+        const allStar = document.querySelectorAll('.rating .star');
+        const ratingValue = document.querySelector('.rating input');
+
+        allStar.forEach((item, idx) => {
+            item.addEventListener('click', function () {
+                let click = 0;
+                ratingValue.value = idx + 1;
+
+                allStar.forEach(i => {
+                    i.classList.replace('bxs-star', 'bx-star');
+                    i.classList.remove('active');
+                });
+
+                for (let i = 0; i < allStar.length; i++) {
+                    if (i <= idx) {
+                        allStar[i].classList.replace('bx-star', 'bxs-star');
+                        allStar[i].classList.add('active');
+                    } else {
+                        allStar[i].style.setProperty('--i', click);
+                        click++;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desain Website - Layanan Kami</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome (Optional for Icons) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    .hero-section {
+        background: url('/assets/design.png') no-repeat center center/cover;
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: start;
+        position: relative;
+        z-index: 1;
+        }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: -1;
+    }
+
+    .services-section .card {
+        border: 1px solid #ddd;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .services-section .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      border: 3px solid indigo;
+    }
+
+    /* CTA Section Styling */
+    .cta-section {
+        background: linear-gradient(rgba(81, 34, 96, 0.8), rgba(191, 0, 255, 0.8)), 
+                    url('/assets/abt.jpeg') center center/cover no-repeat;
+        color: #fff;
+        padding: 80px 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+    }
+
+    .cta-heading {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-text {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-btn {
+        background-color: #25D366;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 30px;
+        padding: 15px 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-btn:hover {
+        background-color: #1da851;
+        transform: scale(1.05);
+        text-decoration: none;
+    }
+
+    .cta-image {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .modal-body img {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+        max-height: 337.5px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .hero-section {
+            margin-top: 4rem;
+            height: auto;
+            padding: 60px 20px;
+        }
+        .hero-section h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2rem;
+        }
+        .hero-section p {
+            font-size: 1rem;
+        }
+        .services-section .card {
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .cta-section {
+            padding: 30px 10px;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+        }
+        .cta-section p {
+            font-size: 0.875rem;
+        }
+    }
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fs-4" href="#home"><img src="assets/BD.png" width="44px" height="44px"
+                style="border-radius: 50%;"> BAYDEV</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color: #fff;"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">BERANDA</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">TENTANG</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">LAYANAN</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#portofolio">PORTOFOLIO</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html #contact">KONTAK</a></li>
+                <li class="nav-item"><a class="nav-link" href="#mulai">MULAI</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="container">
+        <h1>Ingin Membuat Web Dengan <br> Design Kamu?</h1>
+        <p>Ayo Hubungi Kami, Dan Tunjukan Tampilan Yang Sudah Kamu Buat!</p>
+        <a href="#mulai" class="btn btn-lg">Buat Sekarang</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 mt-4">
+        <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+            <h2 class="fs-1" style="font-family: 'Playfair';">TENTANG KAMI</h2>
+            <p>Kami adalah tim pengembang web yang berpengalaman dengan fokus pada pembuatan website yang menarik dan fungsional. Dengan pendekatan yang kreatif dan inovatif, kami siap membantu bisnis Anda berkembang di dunia digital.</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle"></i> Desain website custom</li>
+                <li><i class="fas fa-check-circle"></i> Pengembangan web responsif</li>
+                <li><i class="fas fa-check-circle"></i> Optimasi SEO dan marketing</li>
+            </ul>
+            </div>
+            <div class="col-lg-6">
+            <img src="assets/abt.jpeg" class="img-fluid img-thumbnail mb-3">
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-family: 'Playfair';">LAYANAN DESIGN WEBSITE KAMI</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-palette fa-2x mb-3"></i>
+                            <h5 class="card-title">Desain Kustom</h5>
+                            <p class="card-text">Kami menawarkan desain website kustom yang sesuai dengan keinginan dari client.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customDesignModal">
+                                Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-2x mb-3"></i>
+                            <h5 class="card-title">Desain Responsif</h5>
+                            <p class="card-text">Desain website yang responsif untuk tampilan optimal di berbagai perangkat.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#responsiveDesignModal">
+                                Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-code fa-2x mb-3"></i>
+                            <h5 class="card-title">Optimasi Kecepatan</h5>
+                            <p class="card-text">Kami memastikan website Anda memiliki kecepatan loading yang cepat dan optimal.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#speedOptimizationModal">
+                                Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Custom Design Modal -->
+    <div class="modal fade" id="customDesignModal" tabindex="-1" aria-labelledby="customDesignModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customDesignModalLabel">Desain Kustom</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add an image for the Custom Design service -->
+                    <img src="assets/custom.png" alt="Custom Design" class="img-fluid mb-3">
+                    <p>Kami menawarkan desain website kustom yang sesuai dengan keinginan dari client, termasuk fitur-fitur khusus dan tampilan yang unik untuk mencerminkan merek Anda.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <a href="https://wa.me/+6283147874391" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp me-2"></i> Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responsive Design Modal -->
+    <div class="modal fade" id="responsiveDesignModal" tabindex="-1" aria-labelledby="responsiveDesignModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="responsiveDesignModalLabel">Desain Responsif</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add an image for the Responsive Design service -->
+                    <img src="assets/respon.gif" alt="Responsive Design" class="img-fluid mb-3">
+                    <p>Desain website yang responsif untuk tampilan optimal di berbagai perangkat, termasuk komputer, tablet, dan ponsel. Kami memastikan pengalaman pengguna yang konsisten dan menarik di semua platform.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <a href="https://wa.me/+6283147874391" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp me-2"></i> Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Speed Optimization Modal -->
+    <div class="modal fade" id="speedOptimizationModal" tabindex="-1" aria-labelledby="speedOptimizationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="speedOptimizationModalLabel">Optimasi Kecepatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add an image for the Speed Optimization service -->
+                    <img src="assets/roti-web.gif" alt="Speed Optimization" class="img-fluid mb-3">
+                    <p>Kami memastikan website Anda memiliki kecepatan loading yang cepat dan optimal, dengan teknik-teknik optimasi terbaru untuk meningkatkan kinerja dan mengurangi waktu muat.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <a href="https://wa.me/+6283147874391" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp me-2"></i> Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="mulai">
+        <div class="container">
+            <div class="row align-items-center">
+                  <!-- Image Section -->
+                <div class="col-md-6">
+                    <img src="assets/minat.png" alt="Desain Website" class="img-fluid rounded cta-image">
+                </div>
+                <!-- Text Section -->
+                <div class="col-md-6">
+                    <h2>Berminat untuk Memulai?</h2>
+                    <p class="mb-4">Hubungi kami hari ini untuk mendapatkan konsultasi gratis mengenai desain website Anda.</p>
+                    <a href="https://wa.me/+6283147874391" target="_blank" class="btn btn-lg cta-btn">
+                        <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white pt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">BAY DEVELOPER</h5>
+                    <p>
+                        Kami menyediakan layanan desain dan pengembangan website yang profesional untuk meningkatkan bisnis Anda. 
+                        Hubungi kami untuk informasi lebih lanjut.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-2 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Home</a></li>
+                        <li><a href="#" class="text-white-50">About</a></li>
+                        <li><a href="#" class="text-white-50">Services</a></li>
+                        <li><a href="#" class="text-white-50">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i>info@desainwebsite.com</li>
+                        <li><i class="fas fa-phone me-2"></i>+62 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Jalan Raya No.1, Jakarta</li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <form>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email Address">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+                    </form>
+                    <p class="text-white-50 mt-2">Dapatkan update terbaru dari kami.</p>
+                </div>
+            </div>
+
+            <hr class="border-light">
+
+            <!-- Social Media Icons -->
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <p class="mb-0">&copy; 2024 Desain Website. All Rights Reserved.</p>
+                <div class="social-icons">
+                    <a href="#" class="text-white-50 me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white-50 me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white-50 me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white-50"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" data-bs-toggle="tooltip" data-bs-placement="left" title="Kembali keatas">
+        <i class="fas fa-rocket"></i>
+    </button>
+
+    <!-- Font Awesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
